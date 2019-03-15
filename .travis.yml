@@ -1,0 +1,16 @@
+language: minimal
+
+services:
+  - docker
+
+install:
+  - docker build -t test .
+
+script:
+  - docker run nikgatto/my-dockerized-debian-base -h
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
