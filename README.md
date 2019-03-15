@@ -1,4 +1,4 @@
-[![](https://images.microbadger.com/badges/version/consol/centos-xfce-vnc.svg)](https://hub.docker.com/r/consol/centos-xfce-vnc/) [![](https://images.microbadger.com/badges/image/consol/centos-xfce-vnc.svg)](http://microbadger.com/images/consol/centos-xfce-vnc)
+[![](https://images.microbadger.com/badges/version/nikgatto/my-dockerized-debian-base.svg)](https://hub.docker.com/r/nikgatto/my-dockerized-debian-base/) [![](https://images.microbadger.com/badges/image/nikgatto/my-dockerized-debian-base.svg)](http://microbadger.com/images/nikgatto/my-dockerized-debian-base)
 
 # My Dockerized Debian Base
 
