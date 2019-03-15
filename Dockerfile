@@ -28,7 +28,6 @@ ENV HOME=/home/user \
 
 COPY ./scripts/install ${INST_SCRIPTS}
 COPY ./scripts/startup ${STARTUP_DIR}
-COPY ./configs ${INST_SCRIPTS}/configs
 
 WORKDIR ${INST_SCRIPTS}
 
