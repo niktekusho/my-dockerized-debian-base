@@ -55,6 +55,23 @@ Clone this repository, then build with:
 
 ## Advanced usage
 
+### Debugging the image
+
+When I am debugging this image, I tend to use a lot the following command in order to track the edits I am making:
+
+```sh
+ $ docker build -t nikgatto/my-dockerized-debian-base:beta .
+```
+
+And then to spawn a new container based on this new beta image:
+
+```sh
+ # Note the different set of ports! I do this to prevent ports clash with the "production" container ;)
+ $ docker run -d --rm -p 6902:6901 -p 5902:5901 nikgatto/my-dockerized-debian-base:beta
+```
+
+You can of course adapt the commands above to suit your needs! 😉
+
 ### Extending this image
 
 This image runs as non-root user by default.
