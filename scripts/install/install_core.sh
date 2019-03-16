@@ -6,7 +6,7 @@ set -e
 echo "Install core packages"
 apt-get update
 
-apt-get install -y \
+apt-get -qq install -y \
     bzip2 \
     curl \
 	git \
