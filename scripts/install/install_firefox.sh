@@ -12,3 +12,8 @@ wget -qO- http://releases.mozilla.org/pub/firefox/releases/${FIREFOX_VERS}/linux
 
 # symlink firefox's binary into usr bin
 ln -s "${FIREFOX_INSTALL}"/firefox /usr/bin/firefox
+
+# Copy the Firefox launcher
+echo "Copy Firefox launcher"
+mkdir -p "$HOME/Desktop/"
+cp "${CONFIG_DIR}/firefox.desktop" "$HOME/Desktop/firefox.desktop"

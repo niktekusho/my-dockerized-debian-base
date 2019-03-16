@@ -16,6 +16,7 @@ RUN useradd --create-home --shell /bin/bash user
 # Other envs
 ENV HOME=/home/user \
 	TERM=xterm \
+	CONFIG_DIR=/configs \
 	STARTUP_DIR=/startup \
 	INST_SCRIPTS=/inst_scripts \
 	NO_VNC_HOME=/home/user/noVNC \
@@ -29,6 +30,8 @@ ENV HOME=/home/user \
 COPY ./scripts/install ${INST_SCRIPTS}
 COPY ./scripts/startup ${STARTUP_DIR}
 
+COPY ./configs ${CONFIG_DIR}
+
 WORKDIR ${INST_SCRIPTS}
 
 RUN ./install_core.sh
@@ -38,7 +41,7 @@ RUN ./locales.sh
 # Install xvnc-server & noVNC - HTML5 based VNC viewer
 RUN ./install_vnc.sh
 
-# Install firefox
+# Install and config firefox
 RUN ./install_firefox.sh
 
 # Install graphical env

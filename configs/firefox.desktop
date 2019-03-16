@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firefox
+Comment=Launch Firefox
+Exec=/usr/bin/firefox
+Icon=/usr/lib/firefox/browser/chrome/icons/default/default64.png
+Path=
+Terminal=false
+StartupNotify=false
