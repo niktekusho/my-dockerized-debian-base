@@ -5,4 +5,4 @@ set -e
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-docker push nikgatto/my-dockerized-debian-base
+docker push nikgatto/my-dockerized-debian-base:latest
