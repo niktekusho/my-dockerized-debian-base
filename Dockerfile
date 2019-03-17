@@ -27,27 +27,34 @@ ENV HOME=/home/user \
 	VNC_VIEW_ONLY=false \
 	FIREFOX_VERS=65.0.2
 
-COPY ./scripts/install ${INST_SCRIPTS}
 COPY ./scripts/startup ${STARTUP_DIR}
 
 COPY ./configs ${CONFIG_DIR}
 
+# Trying to use the Docker build cache in a smarter way: COPY FILES AS NEEDED!
+# This makes edits to a file invalidate only the cache from the step it's copied at the cost of having more steps.
+# Before I copied all files in an initial step (1 vs many COPY steps), invalidating cache from the COPY step all the way to the end.
+COPY ./scripts/install/install_core.sh ${INST_SCRIPTS}/
 WORKDIR ${INST_SCRIPTS}
-
 RUN ./install_core.sh
 
+COPY ./scripts/install/locales.sh ${INST_SCRIPTS}/
 RUN ./locales.sh
 
 # Install xvnc-server & noVNC - HTML5 based VNC viewer
+COPY ./scripts/install/install_vnc.sh ${INST_SCRIPTS}/
 RUN ./install_vnc.sh
 
 # Install and config firefox
+COPY ./scripts/install/install_firefox.sh ${INST_SCRIPTS}/
 RUN ./install_firefox.sh
 
 # Install graphical env
+COPY ./scripts/install/install_de.sh ${INST_SCRIPTS}/
 RUN ./install_de.sh
 
 # Fix permissions for user "user"
+COPY ./scripts/install/fix_permissions.sh ${INST_SCRIPTS}/
 RUN ./fix_permissions.sh
 
 USER user
