@@ -11,8 +11,7 @@ apt-get -qq install -y supervisor xfce4 xfce4-terminal xterm
 # apt-get clean -y
 
 # Config xfce basic stuff
-# Config xfce basic stuff
-echo "Configuring xfce with the default layout"
-TARGET="$HOME/.config/"
-mkdir -p $TARGET
-cp -r "$CONFIG_DIR/xfce4" $TARGET
+# echo "Configuring xfce with the default layout"
+# TARGET="$HOME/.config/"
+# mkdir -p $TARGET
+# cp -r "$CONFIG_DIR/xfce4" $TARGET
