@@ -7,15 +7,13 @@ set -e
 help (){
 	echo "
 USAGE:
-	docker run -it -p 6901:6901 -p 5901:5901 consol/<image>:<tag> <option>
+	docker run -it -p 6901:6901 -p 5901:5901 nikgatto/my-dockerized-debian-base:<tag> <option>
 OPTIONS:
 	-w, --wait      (default) keeps the UI and the vncserver up until SIGINT or SIGTERM will received
 	-s, --skip      skip the vnc startup and just execute the assigned command.
                 	example: docker run consol/centos-xfce-vnc --skip bash
-	-d, --debug     enables more detailed startup output
-    	            e.g. 'docker run consol/centos-xfce-vnc --debug bash'
 	-h, --help      print out this help
-	For more information see: https://github.com/ConSol/docker-headless-vnc-container
+	For more information see: https://github.com/niktekusho/my-dockerized-debian-base
 "
 }
 
