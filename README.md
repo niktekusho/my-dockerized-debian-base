@@ -84,11 +84,13 @@ FROM nikgatto/my-dockerized-debian-base
 # Switch to root user to install additional software
 USER root
 
-## Install a gedit
+## Install something
 RUN apt-get update && apt-get install <something>
 
 ## switch back to default user
 USER user
+
+# Done!
 ```
 
 ### Override VNC environment variables
