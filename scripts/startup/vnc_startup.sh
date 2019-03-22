@@ -5,15 +5,37 @@ set -e
 
 # Help function TODO
 help (){
+	if [[ -z $IMAGE_NAME ]]; then
+		# \e[93m prints the following text in "light yellow"
+		# \e[31m prints the following text in "red"
+		# \e[0m resets all previous modifiers
+		echo -e "\e[93m
+You are using an image that does not override the environment variable IMAGE_NAME,
+so the help you are going to see will refer to the original base image \e[31m(nikgatto/my-dockerized-debian-base)\e[0m.
+\e[0m
+"
+	fi
+
+	if [[ -z $IMAGE_REPO ]]; then
+		echo -e "\e[93m
+You are using an image that does not override the environment variable IMAGE_REPO,
+so the help you are going to see will refer to the original repository of this base image \e[31m(https://github.com/niktekusho/my-dockerized-debian-base)\e[0m.
+\e[0m
+"
+	fi
+
+	ENV="${IMAGE_NAME:-nikgatto/my-dockerized-debian-base}"
+	ENV_URL="${IMAGE_REPO:-https://github.com/niktekusho/my-dockerized-debian-base}"
+
 	echo "
 USAGE:
-	docker run -it -p 6901:6901 -p 5901:5901 nikgatto/my-dockerized-debian-base:<tag> <option>
+	docker run -it -p 6901:6901 -p 5901:5901 ${ENV}:<tag> <option>
 OPTIONS:
 	-w, --wait      (default) keeps the UI and the vncserver up until SIGINT or SIGTERM will received
 	-s, --skip      skip the vnc startup and just execute the assigned command.
                 	example: docker run consol/centos-xfce-vnc --skip bash
 	-h, --help      print out this help
-	For more information see: https://github.com/niktekusho/my-dockerized-debian-base
+	For more information see: ${ENV_URL}
 "
 }
 

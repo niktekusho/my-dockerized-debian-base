@@ -81,6 +81,9 @@ If you want to extend the image and install software, you have to switch back to
 ## Custom Dockerfile
 FROM nikgatto/my-dockerized-debian-base
 
+ENV IMAGE_NAME=new-dockerized-debian \
+	IMAGE_REPO=https://git-repo-host/url
+
 # Switch to root user to install additional software
 USER root
 
