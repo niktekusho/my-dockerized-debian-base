@@ -5,6 +5,8 @@ set -e
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
+echo "Tag is: ${TRAVIS_TAG:-null}"
+
 # Previous build step ensures the image is working
 docker build -t nikgatto/my-dockerized-debian-base .
 
