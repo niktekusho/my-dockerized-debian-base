@@ -3,9 +3,44 @@
 # every exit != 0 fails the script
 set -e
 
-echo "Install Xfce4 UI components"
+# Original credits to Corey Butts - https://gist.github.com/boreycutts/6417980039760d9d9dac0dd2148d4783
+
+echo "Install i3-gaps"
+echo "Dependencies"
 apt-get update
-apt-get -qq install -y supervisor xfce4 xfce4-terminal xterm
+# KEEP ALPHABETICAL SORT
+apt-get install -y \
+	autoconf \
+	automake \
+	libev-dev \
+	libpango1.0-dev \
+	libstartup-notification0-dev \
+	libtool \
+	libxcb-cursor-dev \
+	libxcb-icccm4-dev \
+	libxcb-keysyms1-dev \
+	libxcb-randr0-dev \
+	libxcb-util0-dev \
+	libxcb-xinerama0-dev \
+	libxcb-xkb-dev \
+	libxcb-xrm-dev \
+	libxcb1-dev \
+	libxkbcommon-dev \
+	libxkbcommon-x11-dev \
+	libyajl-dev \
+	xutils-dev
+
+cd /tmp
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+git checkout gaps && git pull
+autoreconf --force --install
+rm -rf build
+mkdir build
+cd build
+../configure --prefix=/usr --sysconfdir=/etc
+make
+make install
 
 # No need since we are using debian slim
 # apt-get clean -y
