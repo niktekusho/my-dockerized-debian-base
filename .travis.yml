@@ -13,4 +13,5 @@ deploy:
   provider: script
   script: bash docker_push.sh
   on:
-    condition: $TRAVIS_BRANCH == "master" || -n $TRAVIS_TAG
+    all_branches: true
+    tags: true
