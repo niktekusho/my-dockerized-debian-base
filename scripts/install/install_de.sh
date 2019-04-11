@@ -28,7 +28,10 @@ apt-get install -y \
 	libxkbcommon-dev \
 	libxkbcommon-x11-dev \
 	libyajl-dev \
-	xutils-dev
+	xfonts-75dpi \
+	xfonts-100dpi \
+	xutils-dev \
+	x11-xkb-utils
 
 cd /tmp
 git clone https://www.github.com/Airblader/i3 i3-gaps
