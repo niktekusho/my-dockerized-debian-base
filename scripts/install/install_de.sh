@@ -31,7 +31,8 @@ apt-get install -y \
 	xfonts-75dpi \
 	xfonts-100dpi \
 	xutils-dev \
-	x11-xkb-utils
+	x11-xkb-utils \
+	x11-xserver-utils
 
 cd /tmp
 git clone https://www.github.com/Airblader/i3 i3-gaps

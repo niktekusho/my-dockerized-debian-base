@@ -60,6 +60,6 @@ RUN ./fix_permissions.sh
 USER user
 
 # "Init" script
-# ENTRYPOINT ["/startup/vnc_startup.sh"]
+ENTRYPOINT ["/startup/vnc_startup.sh"]
 
-# CMD ["--wait"]
+CMD ["--wait"]

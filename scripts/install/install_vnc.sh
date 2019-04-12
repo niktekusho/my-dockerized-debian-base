@@ -3,6 +3,9 @@
 # every exit != 0 fails the script
 set -e
 
+echo "Install VNC dependencies"
+apt-get update && apt-get install -y procps
+
 echo "Install TigerVNC server"
 wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.9.0.x86_64.tar.gz | tar xz --strip 1 -C /
 
